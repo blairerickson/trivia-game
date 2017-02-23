@@ -3,7 +3,7 @@
 //  ** SOLUTION **
 
 // TODO: Put links to our images in this image array.
-var images = ["images/bootstrap.png", "images/github-logo.jpg", "images/logo_JavaScript.png"];
+var images = ["http://lorempixel.com/600/400/sports/", "http://lorempixel.com/600/400/city/", "http://lorempixel.com/600/400/people/"];
 
 // Variable showImage will hold the setInterval when we start the slideshow
 var showImage;
@@ -12,10 +12,13 @@ var showImage;
 var count = 0;
 
 // TODO: Use jQuery to run "startSlideshow" when we click the "start" button.
-$("#start").click(startSlideshow);
+$("#begin").click(startSlideshow);
 
 // TODO: Use jQuery to run "stopSlideshow" when we click the "stop" button.
 $("#stop").click(stopSlideshow);
+
+
+  $("#image-holder").html("<img src=http://lorempixel.com/600/400/city/>");
 
 
 // This function will replace display whatever image it's given
