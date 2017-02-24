@@ -19,11 +19,22 @@
       margin: 30px;
       }
 
-      #image-holder {
+  .HintBox 
+    {
+       color: white; 
+       font: center;
+       max-height: 200px;
+       font-family: 'Open Sans', sans-serif;
+        font-family: 'Arvo', serif;
+        margin: 0px;
+        background-color: white;
+      }
+
+   #image-holder {
 
         /* Positioning */
          margin: 20px;
-
+     background:black;
         /* Box-model */
 
         /* Typography */
