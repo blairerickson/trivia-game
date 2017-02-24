@@ -3435,8 +3435,10 @@ fieldset[disabled] .btn-link:focus {
 .btn-group-lg > .btn {
   padding: 10px 16px;
   font-size: 18px;
-  line-height: 1.3333333;
+
   border-radius: 24px;
+     color: white;
+    background-color: #428bca;
 
 }
 .btn-sm,

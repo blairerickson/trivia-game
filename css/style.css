@@ -52,6 +52,8 @@
 
 .btn-lg.round {
   border-radius: 24px;
+      background: #0099cc;
+      color: #fff;
 }
 
 .btn {
@@ -59,6 +61,9 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+      color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
@@ -67,14 +72,20 @@
  
 .btn-primary {
     background: #0099cc;
-    color: #ffffff;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
  
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+      color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
 }
  
 .btn-primary:active, .btn-primary.active {
-    background: #007299;
+     color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
     box-shadow: none;
 }
