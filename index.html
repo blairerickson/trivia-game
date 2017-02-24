@@ -8,47 +8,17 @@
 
     <meta charset="UTF-8">
     <title>TRIVIA</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <style>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-      body { /* Visual */ background: black;}
 
-    #canvas{
-      background: #000;
-    }
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 
-      #image-holder {
-
-        /* Positioning */
-         margin: 0 auto;
-
-        /* Box-model */
-        width: 400px;
-
-        /* Typography */
-        text-align: center;
-
-      }
-
-      #buttons {
-
-        /* Positioning */
-        margin: 10px 0;
-
-        /* Typography */
-        text-align: center;
-
-      }
-
-      button {
-
-        /* Box-model */
-        width: 100px;
-        height: 50px;
-
-      }
-
-    </style>
 
   </head>
 
@@ -62,21 +32,26 @@
 <script src="https://code.createjs.com/createjs-2014.12.12.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
 
-<canvas id="canvas"></canvas>
+
 
 
   <div id="start" margin="500px">
-      <button id="begin" margin="50px" width="300px"><h2>BEGIN TRIVIA!</h2></button>
+     <center> <button id="begin" margin="50px" width="300px"><h2>BEGIN TRIVIA!</h2></button></center></br>
   </div>
+    <div class="col col-lg-2"></div>
+    <div id="image-holder" class="col col-lg-4"></div>
+    <div id="questionbox" class="col col-lg-4" ></div>
+    <div class="col col-lg-2"></div>
 
-    <div id="image-holder"></div>
-    <div id="questionbox"></div>
-
-    <div id="buttons">
-      <button id="A"><h2>A</h2></button>
-      <button id="B"><h2>B</h2></button>
-      <button id="C"><h2>C</h2></button>
-      <button id="D"><h2>D</h2></button>
+    <div id="buttons" class="row">
+      <div class="col col-lg-4">
+        <button id="A"><h2>A</h2></button>
+        <button id="B"><h2>B</h2></button>
+        <button id="C"><h2>C</h2></button>
+        <button id="D"><h2>D</h2></button>
+  
+        <button type="button" class="btn-lg">Basic Button</button>
+        </div>
     </div>
 
     <!-- jQuery -->
