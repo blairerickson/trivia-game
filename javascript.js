@@ -1,7 +1,7 @@
 
 
 
-//  Trivia code section
+//  Trivia code variables section
 
 var movies = ["Ferris Bueller's Day Off","What Dreams May Come","Fear and Loathing in Las Vegas","Cabin in the Woods","Schindler's List", "Halloween 2","Naked Gun", "Deep Blue Sea", "Drag Me to Hell","Rambo 2","Kindergarden Cop","Total Recall","The Thing","The Fast and the Furious","The Iron Giant","Frozen","Saw 5","Saw 2","Saw 4","Saw 3","The Incredibles","Ratatouille","The Blues Brothers","National Lampoon's Christmas Vacation","Star Trek II","Close Encounters of the Third Kind","War of the Worlds","Toy Story 3", "Tango and Cash","The Expendables","2 Fast 2 Furious","Die Hard 2","Police Academy","Die Hard 3","Die Hard", "Friday the 13th part 2","Lilo and Stitch","Hope Floats","Catch Me if You Can","What About Bob","Scarface","The Matrix","Rogue One","The Force Awakens","The Empire Strikes Back","Star Wars: A New Hope","Return of the Jedi","Indiana Jones and the Last Crusade","Indiana Jones and the Temple of Doom","Raiders of the Lost Ark","Before Midnight","Before Sunset","Before Sunrise","Adventures in Babysitting","Boyhood","Eight Legged Freaks","Pulp Fiction","Inglourious Basterds","Robin Hood: Prince of Thieves","Twelve Monkeys","Fight Club","Gone Girl","Se7en","Evil Dead 2","Ex-Machina","District 9","The Fly","Groundhog's Day", "Rebel Without a Cause","Enemy At the Gates","Saving Private Ryan","Sunset Boulevard", "Creature From the Black Lagoon","Lake Placid","Dumb and Dumber","Me Myself and Irene","Eternal Sunshine of the Spotless Mind","Jurassic Park", "The Big Lebowski", "Banshee Chapter","The Dark Knight", "Gremlins","Deadpool","Terminator","Terminator 2","King Kong","A Nightmare on Elm Street","The Avengers: Age of Ultron","Children of Men", "Oldboy","Steel Magnolias","Can't Hardly Wait","The Breakfast Club"];
 var random = Math.floor((Math.random() * movies.length) + 1);
@@ -9,18 +9,19 @@ var dice = Math.floor((Math.random() * movies.length) + 1);
 var points = 0;
 var point_counter = 10;
 var GameGo = 0;
-
 var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + movies[random]+ '&limit=5&api_key=dc6zaTOxFJmzC';
-
-
 var Qwrong = Math.floor((Math.random() * movies.length) + 1);
 var Arand = Math.floor((Math.random() * 4) + 1);
 var Hint1 = "blank";
 var Hint2 = "blank";
 var Hint3 = "blank";
 var Hint4 = "blank";
+var triviagame = document.getElementById('triviagame');
+var showImage;
 
-var triviagame = document.getElementById('triviagame')
+// Count will keep track of the index of the currently displaying picture.
+var count = 0;
+
 
 triviagame.style.visibility = 'hidden';
 
@@ -46,20 +47,20 @@ function timer() {
 
 //distributes hints based on the countdown timer
 
-          if (a < 8)
+          if (a == 12)
           {
            $("#HintBox1").html('<img src="' + Hint1 + ' " width="100%"> ');
           }
 
-          if (a < 6)
+          if (a == 9)
          {
            $("#HintBox2").html('<img src="' + Hint2 + ' " width="100%"> ');
           }
-          if (a <4)
+          if (a == 5)
           {
              $("#HintBox3").html('<img src="' + Hint3 + ' " width="100%"> '); 
             }
-          if (a < 2)
+          if (a == 3)
           {         
            $("#HintBox4").html('<img src="' + Hint4 + ' " width="100%"> ');
          }
@@ -96,16 +97,6 @@ function hidebutton() {
         x.style.display = 'none';
     }
 }
-
-var showImage;
-
-// Count will keep track of the index of the currently displaying picture.
-var count = 0;
-
-$("#begin").click(startGameshow);
-$("#begin").click(AnswerSort);
-
-$("#Ans1").click(CheckAnswer);
 
 
 
@@ -150,41 +141,40 @@ var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + movies[random]+ '&limi
 
 }
 
-function nextImage() {
+function nextImage() 
+    {
+          count++;
+          random = Math.floor((Math.random() * movies.length) + 1);
+          Arand = Math.floor((Math.random() * 4) + 1);
+           $("#HintBox1").html("Hint #1");
+           $("#HintBox2").html("Hint #2");
+           $("#HintBox3").html("Hint #3");
+           $("#HintBox4").html("Hint #4");
+           a = 15;
+           displayImage()
 
-  count++;
-  random = Math.floor((Math.random() * movies.length) + 1);
-  Arand = Math.floor((Math.random() * 4) + 1);
-   $("#HintBox1").html("Hint #1");
-   $("#HintBox2").html("Hint #2");
-   $("#HintBox3").html("Hint #3");
-   $("#HintBox4").html("Hint #4");
-   a = 15;
-   displayImage()
-
-  AnswerSort();
+          AnswerSort();
 
 
- // $("#image-holder").html("<img src='images/loading.gif' width='150px'/>");
+         // $("#image-holder").html("<img src='images/loading.gif' width='150px'/>");
 
-clock = $('.clock').FlipClock(a, 
-       {
-            clockFace: 'Counter',
-            countdown: true,
- 
-        });
-  
-  // setTimeout(displayImage, 2000);
+        clock = $('.clock').FlipClock(a, 
+               {
+                    clockFace: 'Counter',
+                    countdown: true,
+         
+                });
 
-}
+    }
 
 
 
 function startGameshow() 
       {
-      showImage = setInterval(nextImage, a * 1000);
+      // showImage = setInterval(nextImage, a * 1000);
       hidebutton();
       triviagame.style.visibility = 'visible';
+      nextImage();
       }
 
 function stopSlideshow() 
@@ -217,3 +207,11 @@ $("#begin").click(function(e)
             clock.start();
             GameGo = 1;
         });
+
+
+$("#begin").click(startGameshow);
+$("#begin").click(AnswerSort);
+
+$("#Ans1").click(CheckAnswer);
+$("#Ans3").click(nextImage);
+$("#Ans3").click(timer);
