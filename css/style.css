@@ -10,6 +10,11 @@
     margin-top:20px;
 }
 
+.clock{
+zoom: 0.5;
+-moz-transform: scale(0.5)
+}
+
 .thumbnail {
     padding: 0;
 }
