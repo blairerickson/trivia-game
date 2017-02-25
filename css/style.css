@@ -4,13 +4,31 @@
 
       }
 
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}
 
 
     #canvas{
       background: #000;
     }
+  
+ #main_area {
+             font-family: 'Arvo', serif;
+             color:gray;
+    }
 
-      #questionbox {
+  #questionbox {
 
        color: white; 
        font: center;
@@ -23,18 +41,21 @@
     {
        color: white; 
        font: center;
-       max-height: 200px;
+       max-height: 250px;
+       max-width: 250px;
        font-family: 'Open Sans', sans-serif;
         font-family: 'Arvo', serif;
-        margin: 0px;
+        margin: 30px;
         background-color: black;
       }
 
    #image-holder {
 
         /* Positioning */
-         margin: 20px;
-     background:black;
+       margin: 20px;
+       background:black;
+       max-width:100%;
+       max-height:250px;
         /* Box-model */
 
         /* Typography */
@@ -43,7 +64,7 @@
 
       }
 
-      #buttons {
+      #button {
 
         /* Positioning */
         margin: 30px 0;
@@ -75,6 +96,7 @@
       color: #fff;
   background-color: #428bca;
   border-color: #357ebd;
+
 }
  
 .btn:focus, .btn:active:focus, .btn.active:focus {
