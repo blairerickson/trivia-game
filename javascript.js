@@ -29,6 +29,7 @@ triviagame.style.visibility = 'hidden';
 
 
 //starts the countdown timer
+// a is the time limit in seconds for each round
 
 var a = 15;
 var i = setInterval( timer, 1000 );
@@ -39,7 +40,10 @@ function timer() {
     console.log( a );
     if ( a < 1) {
         console.log( 'Reaching Stop' ); 
+        CheckAnswer(0);
+//stops the timer and checks for no answer
         clearInterval( i );
+        GameGo = 0;
         return;         
     } 
     a -= 1;
@@ -66,6 +70,7 @@ function timer() {
            $("#HintBox4").html('<img src="' + Hint4 + ' " width="100%"> ');
          }
   }
+
 
 
 //randomly distributes answers and keeps track of which button they're tied to.
@@ -103,20 +108,44 @@ function hidebutton() {
 // checks if the button pressed was the correct answer or not.
 function CheckAnswer(clicked)
 {
-  console.log(clicked);
+     $("#side_box").hide(100);
+     $("#CountTicker").hide(100);
+     $("#button_bar").hide(100);
+     $("#text_area").show(100);
+
+    console.log(clicked);
   if (Arand == clicked )
   {
     console.log(Arand + "CORRECT!");
     point_counter = point_counter + a;
     console.log('current points:'+ point_counter);
+
+               $("#text_area").html('<h2>CORRECT! You earned ' + a + ' points. </h2>');
+               $("#text_area").append('<br> total score: ' + point_counter);
+              
+
   }
   else 
   {
   console.log(Arand + "WRONG...");
+               point_counter = point_counter - a;
+               $("#text_area").html('<h2>WRONG... You lost ' + a + ' points. </h2>');
+               $("#text_area").append('<br> total score: ' + point_counter);
+          
+
   }
+
+  intermission();
 }
 
 
+function intermission()
+{
+          clearInterval( i );
+  console.log("intermission");
+  // setInterval(function(){ nextImage();
+  //  }, 3000);
+}
 
 // This function will replace display whatever image it's given
 // in the 'src' attribute of the img tag.
@@ -147,6 +176,13 @@ var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + movies[random]+ '&limi
 
 function nextImage() 
     {
+
+     $("#side_box").show(100);
+     $("#CountTicker").show(100);
+     $("#button_bar").show(100);
+     $("#text_area").hide(100);
+
+                      // $("#main_area").append('<center><h1>What movie gives this gif result?</h1></center>')
           count++;
           random = Math.floor((Math.random() * movies.length) + 1);
           Arand = Math.floor((Math.random() * 4) + 1);
