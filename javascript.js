@@ -28,7 +28,7 @@ triviagame.style.visibility = 'hidden';
 
 //starts the countdown timer
 
-var a = 10;
+var a = 15;
 var i = setInterval( timer, 1000 );
 
 function timer() {
@@ -41,6 +41,7 @@ function timer() {
         return;         
     } 
     a -= 1;
+        clock.decrement();
    }
 
 //distributes hints based on the countdown timer
@@ -122,10 +123,6 @@ function CheckAnswer()
 
 
 
-$("#questionbox").html("TEST QUESTION FOR QUESTION BOX.");
-
-
-
 // This function will replace display whatever image it's given
 // in the 'src' attribute of the img tag.
 function displayImage() {
@@ -162,16 +159,22 @@ function nextImage() {
    $("#HintBox2").html("Hint #2");
    $("#HintBox3").html("Hint #3");
    $("#HintBox4").html("Hint #4");
-   a = 10;
+   a = 15;
    displayImage()
 
   AnswerSort();
 
 
- $("#image-holder").html("<img src='images/loading.gif' width='150px'/>");
+ // $("#image-holder").html("<img src='images/loading.gif' width='150px'/>");
 
+clock = $('.clock').FlipClock(a, 
+       {
+            clockFace: 'Counter',
+            countdown: true,
+ 
+        });
   
-  setTimeout(displayImage, 1000);
+  // setTimeout(displayImage, 2000);
 
 }
 
@@ -179,7 +182,7 @@ function nextImage() {
 
 function startGameshow() 
       {
-      showImage = setInterval(nextImage, 10000);
+      showImage = setInterval(nextImage, a * 1000);
       hidebutton();
       triviagame.style.visibility = 'visible';
       }
@@ -197,27 +200,20 @@ var clock;
     
     $(document).ready(function() {
       
-      clock = $('.clock').FlipClock(a, {
-            clockFace: 'MinuteCounter',
+      clock = $('.clock').FlipClock(a, 
+       {
+            clockFace: 'Counter',
             countdown: true,
-            autoStart: false,
-            callbacks: {
-              start: function() {
-                console.log('The clock has started!');
-                console.log(count);
-              }
-            }
+ 
         });
 
-        $("#begin").click(function(e) {
 
-        
-    
-            clock.start();
-            GameGo = 1;
-
-
-
-        });
 
     });
+
+
+$("#begin").click(function(e) 
+      {
+            clock.start();
+            GameGo = 1;
+        });
