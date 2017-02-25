@@ -43,20 +43,23 @@ function timer() {
     a -= 1;
    }
 
+//distributes hints based on the countdown timer
+
           if (a < 8)
-         {
+          {
            $("#HintBox1").html('<img src="' + Hint1 + ' " width="100%"> ');
-        }
+          }
 
           if (a < 6)
          {
-                  $("#HintBox2").html('<img src="' + Hint2 + ' " width="100%"> ');
+           $("#HintBox2").html('<img src="' + Hint2 + ' " width="100%"> ');
           }
           if (a <4)
           {
-                     $("#HintBox3").html('<img src="' + Hint3 + ' " width="100%"> '); 
+             $("#HintBox3").html('<img src="' + Hint3 + ' " width="100%"> '); 
             }
-          if (a < 2){         
+          if (a < 2)
+          {         
            $("#HintBox4").html('<img src="' + Hint4 + ' " width="100%"> ');
          }
   }
@@ -155,6 +158,13 @@ function nextImage() {
   count++;
   random = Math.floor((Math.random() * movies.length) + 1);
   Arand = Math.floor((Math.random() * 4) + 1);
+   $("#HintBox1").html("Hint #1");
+   $("#HintBox2").html("Hint #2");
+   $("#HintBox3").html("Hint #3");
+   $("#HintBox4").html("Hint #4");
+   a = 10;
+   displayImage()
+
   AnswerSort();
 
 
