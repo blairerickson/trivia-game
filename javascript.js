@@ -7,7 +7,7 @@ var movies = ["Ferris Bueller's Day Off","What Dreams May Come","Fear and Loathi
 var random = Math.floor((Math.random() * movies.length) + 1);
 var dice = Math.floor((Math.random() * movies.length) + 1);
 var points = 0;
-var point_counter = 10;
+var point_counter = 0;
 var GameGo = 0;
 var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + movies[random]+ '&limit=5&api_key=dc6zaTOxFJmzC';
 var Qwrong = Math.floor((Math.random() * movies.length) + 1);
@@ -18,6 +18,7 @@ var Hint3 = "blank";
 var Hint4 = "blank";
 var triviagame = document.getElementById('triviagame');
 var showImage;
+var clicked = 0;
 
 // Count will keep track of the index of the currently displaying picture.
 var count = 0;
@@ -99,12 +100,15 @@ function hidebutton() {
 }
 
 
-
-function CheckAnswer()
+// checks if the button pressed was the correct answer or not.
+function CheckAnswer(clicked)
 {
-  if (Arand == 1 )
+  console.log(clicked);
+  if (Arand == clicked )
   {
     console.log(Arand + "CORRECT!");
+    point_counter = point_counter + a;
+    console.log('current points:'+ point_counter);
   }
   else 
   {
@@ -212,6 +216,24 @@ $("#begin").click(function(e)
 $("#begin").click(startGameshow);
 $("#begin").click(AnswerSort);
 
-$("#Ans1").click(CheckAnswer);
-$("#Ans3").click(nextImage);
-$("#Ans3").click(timer);
+$("#Ans1").click(function(){
+  console.log("button 1 pressed")
+  CheckAnswer(1);
+});
+
+$("#Ans2").click(function(){
+  console.log("button 2 pressed")
+  CheckAnswer(2);
+});
+
+$("#Ans3").click(function(){
+  console.log("button 3 pressed")
+  CheckAnswer(3);
+});
+$("#Ans4").click(function(){
+  console.log("button 4 pressed")
+  CheckAnswer(4);
+});
+
+// $("#Ans3").click(nextImage);
+// $("#Ans3").click(timer);
