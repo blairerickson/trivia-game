@@ -95,11 +95,11 @@ function AnswerSort()
 
 
 function hidebutton() {
-    var x = document.getElementById('begin');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
+    var Z = document.getElementById('begin');
+    if (Z.style.display === 'none') {
+        Z.style.display = 'block';
     } else {
-        x.style.display = 'none';
+        Z.style.display = 'none';
     }
 }
 
@@ -139,12 +139,25 @@ function CheckAnswer(clicked)
 
 function intermission()
 {
-   GameGo = 1;
+      var x = 3;
+     clearInterval( i );
+    console.log("intermission. A : " + a + "GameGo: " + GameGo + " i is:" + i);
+
+   var Zipper = setInterval(function(){
+      x--;
+      console.log("X is currently: " + x) ;
+
+    if (x == 0)
+    {
+  GameGo = 1;
       a = 15;
- clearInterval( i );
-  console.log("intermission. A : " + a + "GameGo: " + GameGo + " i is:" + i);
-  nextImage();
-i = setInterval( timer, 1000 );
+      nextImage();
+     i = setInterval( timer, 1000 );
+      console.log('nextImage');
+      clearInterval(Zipper);
+    }
+    }, 1000);
+
 }
 
 // This function will replace display whatever image it's given

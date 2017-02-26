@@ -87,6 +87,17 @@ zoom: 0.5;
 
 /*button code */
 
+.text_area
+{
+  color: white; 
+       font: center;
+       max-height: 250px;
+       max-width: 250px;
+        font-family: 'Arvo', serif;
+        margin: 30px;
+        background-color: black;
+}
+
 .btn-lg.round {
   border-radius: 24px;
       background: #0099cc;
