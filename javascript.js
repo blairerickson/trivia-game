@@ -34,16 +34,15 @@ triviagame.style.visibility = 'hidden';
 var a = 15;
 var i = setInterval( timer, 1000 );
 
-function timer() {
+function timer() 
+ {
   if (GameGo == 1)
   {
     console.log( a );
     if ( a < 1) {
         console.log( 'Reaching Stop' ); 
+        //stops the timer and checks for no answer
         CheckAnswer(0);
-//stops the timer and checks for no answer
-        clearInterval( i );
-        GameGo = 0;
         return;         
     } 
     a -= 1;
@@ -122,7 +121,7 @@ function CheckAnswer(clicked)
 
                $("#text_area").html('<h2>CORRECT! You earned ' + a + ' points. </h2>');
                $("#text_area").append('<br> total score: ' + point_counter);
-              
+               intermission();
 
   }
   else 
@@ -130,21 +129,22 @@ function CheckAnswer(clicked)
   console.log(Arand + "WRONG...");
                point_counter = point_counter - a;
                $("#text_area").html('<h2>WRONG... You lost ' + a + ' points. </h2>');
-               $("#text_area").append('<br> total score: ' + point_counter);
-          
+               $("#text_area").append('<br> total score: ' + point_counter);     
+              intermission();
 
   }
 
-  intermission();
 }
 
 
 function intermission()
 {
-          clearInterval( i );
-  console.log("intermission");
-  // setInterval(function(){ nextImage();
-  //  }, 3000);
+   GameGo = 1;
+      a = 15;
+ clearInterval( i );
+  console.log("intermission. A : " + a + "GameGo: " + GameGo + " i is:" + i);
+  nextImage();
+i = setInterval( timer, 1000 );
 }
 
 // This function will replace display whatever image it's given
@@ -169,7 +169,6 @@ var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + movies[random]+ '&limi
        Hint2 = response.data[2].images.fixed_height.url;
        Hint3 = response.data[3].images.fixed_height.url;
        Hint4 = response.data[4].images.fixed_height.url;
-       console.log("hint1 is " + Hint1);
     });
 
 }
@@ -181,6 +180,7 @@ function nextImage()
      $("#CountTicker").show(100);
      $("#button_bar").show(100);
      $("#text_area").hide(100);
+     GameGo = 1; 
 
                       // $("#main_area").append('<center><h1>What movie gives this gif result?</h1></center>')
           count++;
@@ -191,7 +191,8 @@ function nextImage()
            $("#HintBox3").html("Hint #3");
            $("#HintBox4").html("Hint #4");
            a = 15;
-           displayImage()
+           // timer(); 
+           displayImage();
 
           AnswerSort();
 
@@ -244,7 +245,7 @@ var clock;
 
 $("#begin").click(function(e) 
       {
-            clock.start();
+            // clock.start();
             GameGo = 1;
         });
 
