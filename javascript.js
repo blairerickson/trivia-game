@@ -119,16 +119,16 @@ function CheckAnswer(clicked)
     point_counter = point_counter + a;
     console.log('current points:'+ point_counter);
 
-               $("#text_area").html('<h2>CORRECT! You earned ' + a + ' points. </h2>');
+               $("#text_area").html('<h2><font color="green">CORRECT! </font> You earned ' + a + ' points. </h2>');
                $("#text_area").append('<br> total score: ' + point_counter);
                intermission();
 
   }
   else 
   {
-  console.log(Arand + "WRONG...");
+  console.log(Arand + 'WRONG ANSWER...');
                point_counter = point_counter - a;
-               $("#text_area").html('<h2>WRONG... You lost ' + a + ' points. </h2>');
+               $("#text_area").html('<h2><font color="red">WRONG... </font>You lost ' + a + ' points. </h2>');
                $("#text_area").append('<br> total score: ' + point_counter);     
               intermission();
 

@@ -48,7 +48,6 @@ zoom: 0.5;
        font: center;
        max-height: 250px;
        max-width: 250px;
-       font-family: 'Open Sans', sans-serif;
         font-family: 'Arvo', serif;
         margin: 30px;
         background-color: black;
@@ -100,11 +99,16 @@ zoom: 0.5;
 }
 
 
+#begin
+{
+    margin-top: 30px;
+        font-family: 'Arvo', serif;
+        color: black;
+}
+
 #CountTicker
 {
         font-family: 'Arvo', serif;
-
-
         color: white;
 }
 
