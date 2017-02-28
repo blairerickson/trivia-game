@@ -87,7 +87,7 @@ zoom: 0.5;
 
 /*button code */
 
-.text_area
+#text_area
 {
   color: white; 
        font: center;
@@ -95,7 +95,8 @@ zoom: 0.5;
        max-width: 250px;
         font-family: 'Arvo', serif;
         margin: 30px;
-        background-color: black;
+
+        color: white;
 }
 
 .btn-lg.round {
