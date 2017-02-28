@@ -99,6 +99,15 @@ zoom: 0.5;
         color: white;
 }
 
+
+#CountTicker
+{
+        font-family: 'Arvo', serif;
+
+
+        color: white;
+}
+
 .btn-lg.round {
   border-radius: 24px;
       background: #0099cc;
